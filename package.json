@@ -1,0 +1,53 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "webfueler.com personal website",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clean && cross-env NODE_ENV=production webpack --mode production",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --hot",
+    "lint:js": "eslint . --ext .ts,.tsx --quiet",
+    "clean": "rimraf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webfueler/website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webfueler/website/issues"
+  },
+  "homepage": "https://github.com/webfueler/website#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.17",
+    "@types/showdown": "^1.9.4",
+    "@typescript-eslint/eslint-plugin": "^5.11.0",
+    "copy-webpack-plugin": "^10.2.4",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.6.0",
+    "eslint": "^8.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "extract-loader": "^5.1.0",
+    "file-loader": "^6.2.0",
+    "html-loader": "^3.1.0",
+    "html-webpack-plugin": "^5.5.0",
+    "markdown-loader": "^8.0.0",
+    "mini-css-extract-plugin": "^2.5.3",
+    "normalize-scss": "^7.0.1",
+    "raw-loader": "^4.0.2",
+    "remark-html": "^15.0.1",
+    "remark-loader": "^4.0.0",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.49.7",
+    "sass-loader": "^12.4.0",
+    "showdown": "^2.0.0-alpha",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.5.0",
+    "typescript": "^4.5.5",
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  }
+}

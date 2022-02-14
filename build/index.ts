@@ -10,7 +10,6 @@ const converter = new Converter();
 const PAGES_PATH = '../src/pages/';
 
 const files = FileSystemService.getFilesInFolder(PAGES_PATH, '**/*.md');
-console.log(files);
 
 const pages: PageService[] = files.map((file) => {
 	const markdownFile = new MarkdownFileService(PAGES_PATH + file).file;

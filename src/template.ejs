@@ -9,11 +9,15 @@
 </head>
 
   <body class="wf-body">
-    <% try { %>
-    <%= markdown %>
-    <% } catch (e) { %>
-      <p>couldn't load markdown file</p>
-    <% } %>
+    <div class="wf-container">
+      <div class="wf-converter-markdown">
+        <% try { %>
+        <%= markdown %>
+        <% } catch (e) { %>
+          <p>couldn't load markdown file</p>
+        <% } %>
+      </div>
+    </div>
   </body>
 
 </html>

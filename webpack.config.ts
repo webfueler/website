@@ -17,29 +17,36 @@ const customWebpackConfig = async () => {
 		},
 		module: {
 			rules: [
-			{
-				test: /\.(sa|sc|c)ss$/,
-				use: [
-				MiniCssExtractPlugin.loader,
-				"css-loader",
-				"resolve-url-loader",
 				{
-					loader: "sass-loader",
-					options: {
-						sourceMap: true,
-					}
-				}
-				],
-			},
-			{
-				test: /\.(png|jpe?g|gif)$/i,
-				use: [
+					test: /\.(sa|sc|c)ss$/,
+					use: [
+					MiniCssExtractPlugin.loader,
+					"css-loader",
+					"resolve-url-loader",
 					{
-					loader: 'file-loader',
-					},
-				],
-			},
+						loader: "sass-loader",
+						options: {
+							sourceMap: true,
+						}
+					}
+					],
+				},
+				{
+					test: /\.(png|jpe?g|gif)$/i,
+					use: [
+						{
+						loader: 'file-loader',
+						},
+					],
+				},
+				{
+					test: /\.tsx?$/,
+					loader: "ts-loader"
+				}
 			],
+		},
+		resolve: {
+			extensions: [".ts", ".tsx", ".js"]
 		},
 		plugins: [
 			new MiniCssExtractPlugin(),
@@ -53,7 +60,5 @@ const customWebpackConfig = async () => {
 	};
 	return config;
 }
-
-
 
 module.exports = customWebpackConfig();

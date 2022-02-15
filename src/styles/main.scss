@@ -1,5 +1,49 @@
+@import "normalize-variables";
 @import "~normalize-scss/sass/normalize/import-now";
+@import "theme.scss";
+@import "prism-night-owl";
 
 body {
-  font-family: 'Courier New', Courier, monospace;
+  box-sizing: border-box;
+}
+
+.wf-body {
+  background-color: $wf-background-color;
+  color: $wf-color;
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.wf-container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1024px;
+  padding: 0 $wf-container-padding;
+}
+
+.wf-converter-markdown {
+  img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  hr {
+    border-color: darken($wf-color, 50%);
+  }
+
+  a, a:visited {
+    color: darken($wf-color, 20%);
+
+    &:hover {
+      color: darken($wf-color, 50%);
+    }
+  }
+}
+
+pre[class*="language-"] {
+  margin-left: -$wf-container-padding;
+  margin-right: -$wf-container-padding;
+  font-size: 14px;
 }

@@ -1,15 +1,9 @@
-import { IMarkdownFile, IPageParameters } from './interfaces';
-
-interface IParametersFileService {
-	getParameters(): Promise<IPageParameters>
-}
+import { IMarkdownFile } from '../markdownFileService/interfaces';
+import { DEFAULT_PAGE_PARAMETERS } from './constants';
+import { IPageParameters, IParametersFileService } from './interfaces';
 
 class ParametersFileService implements IParametersFileService {
-	private defaultParameters: IPageParameters = {
-		meta: {
-			title: 'Default Title'
-		}
-	}
+	private defaultParameters = DEFAULT_PAGE_PARAMETERS;
 
 	constructor(
 		private markdownFile: IMarkdownFile,

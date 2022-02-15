@@ -1,10 +1,10 @@
-import { PageService } from './services/PageService';
-import { HtmlFileService } from './services/HtmlFileService';
-import { MarkdownFileService } from './services/MarkdownFileService';
+import { PageService } from './services/pageService/PageService';
+import { HtmlFileService } from './services/htmlFileService/HtmlFileService';
+import { MarkdownFileService } from './services/markdownFileService/MarkdownFileService';
 import { Converter } from 'showdown';
-import { ParametersFileService } from './services/ParametersFileService';
+import { ParametersFileService } from './services/parametersFileService/ParametersFileService';
 import { Options } from 'html-webpack-plugin';
-import { FileSystemService } from './services/FileSystemService';
+import { FileSystemService } from './services/fileSystemService/FileSystemService';
 
 const converter = new Converter();
 const PAGES_PATH = '../src/pages/';

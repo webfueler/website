@@ -3,7 +3,7 @@ import { GlobSync } from 'glob';
 
 class FileSystemService {
 	static absolutePath(_path: string): string {
-		return path.resolve(__dirname, '..', _path);
+		return path.resolve(__dirname, '../..', _path);
 	}
 
 	static filename(_path: string, basePath = ''): string {

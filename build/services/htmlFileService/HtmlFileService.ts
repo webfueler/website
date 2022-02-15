@@ -1,11 +1,7 @@
 import { Converter } from 'showdown';
-import { IHtmlFile, IMarkdownFile } from './interfaces';
-import { FileSystemService } from './FileSystemService';
-
-interface IHtmlFileService {
-	file: IHtmlFile;
-	template?: string;
-}
+import { IHtmlFile, IHtmlFileService } from './interfaces';
+import { IMarkdownFile } from '../markdownFileService/interfaces';
+import { FileSystemService } from '../fileSystemService/FileSystemService';
 
 class HtmlFileService implements IHtmlFileService {
 	private convertedFile: IHtmlFile = { content: '', filename: ''};

@@ -1,13 +1,12 @@
 import { Options } from 'html-webpack-plugin';
-import { HtmlFileService } from './HtmlFileService';
-import { FileSystemService } from './FileSystemService';
-import { ParametersFileService } from './ParametersFileService';
+import { HtmlFileService } from '../htmlFileService/HtmlFileService';
+import { FileSystemService } from '../fileSystemService/FileSystemService';
+import { ParametersFileService } from '../parametersFileService/ParametersFileService';
+import { IPageService } from './interfaces';
+import { HTML_WEBPACK_PLUGIN_OPTIONS } from './constants';
 
-export class PageService {
-	private defaultOptions: Options = {
-		inject: true,
-		minify: true,
-	};
+export class PageService implements IPageService {
+	private defaultOptions = HTML_WEBPACK_PLUGIN_OPTIONS;
 
 	constructor(
 		private defaultTemplate: string,

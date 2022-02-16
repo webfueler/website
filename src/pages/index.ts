@@ -1,4 +1,4 @@
-import { IPageParameters } from "../../build/services/interfaces";
+import { IPageParameters } from "../../build/services/parametersFileService/interfaces";
 
 const parameters: IPageParameters = {
 	meta: {

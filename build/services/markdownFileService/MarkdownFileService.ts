@@ -1,10 +1,6 @@
-import { IMarkdownFile } from './interfaces';
 import { readFileSync } from 'fs';
-import { FileSystemService} from './FileSystemService';
-
-interface IMarkdownFileService {
-	file: IMarkdownFile;
-}
+import { FileSystemService } from '../fileSystemService/FileSystemService';
+import { IMarkdownFileService, IMarkdownFile } from './interfaces';
 
 class MarkdownFileService implements IMarkdownFileService {
 	private markdownFile: IMarkdownFile = {

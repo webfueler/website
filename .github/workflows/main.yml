@@ -51,5 +51,5 @@ jobs:
           server: webfueler.com
           username: github@webfueler.com
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist
+          local-dir: ./dist/
 

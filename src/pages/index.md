@@ -1,6 +1,6 @@
-# Joao Santos - Webfueler
+# Joao Santos
 
-I'm a web developer, passionate by innovation and user experience. I have been working in web development for quite a few time now, but last years I have been focused in **front-end development**.
+I'm a web developer, passionate by innovation and user experience. I have been working in web development since 2005, but last years I have been focused in **front-end development**.
 
 ![Joao Santos](../assets/joao-santos.jpg)
 

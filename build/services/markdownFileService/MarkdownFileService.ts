@@ -4,7 +4,7 @@ import { IMarkdownFileService, IMarkdownFile } from './interfaces';
 
 class MarkdownFileService implements IMarkdownFileService {
 	private markdownFile: IMarkdownFile = {
-		content: '', path: '', absolutePath: ''
+		content: '', path: '', absolutePath: '', type: 'md'
 	};
 	private absolutePath = '';
 
@@ -17,11 +17,20 @@ class MarkdownFileService implements IMarkdownFileService {
 			content,
 			path,
 			absolutePath: this.absolutePath,
+			type: this.getMarkdownFileType(),
 		}
 	}
 
 	get file() : IMarkdownFile {
 		return this.markdownFile;
+	}
+
+	private getMarkdownFileType(): 'md' | 'mdx' {
+		if (this.absolutePath.endsWith('.md')) {
+			return 'md';
+		}
+
+		return 'mdx';
 	}
 
 	private getMardownFileContent(): string {

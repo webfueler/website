@@ -15,7 +15,7 @@ export class PageService implements IPageService {
 	) {}
 
 	async htmlPluginOptions(): Promise<Options> {
-		const parameters = await this.parametersFileService.getParameters();
+		const parameters = this.htmlFileService.file.params || await this.parametersFileService.getParameters();
 
 		return {
 			...this.defaultOptions,

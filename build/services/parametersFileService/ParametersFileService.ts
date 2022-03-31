@@ -10,7 +10,7 @@ class ParametersFileService implements IParametersFileService {
 	) {}
 
 	public getParameters(): Promise<IPageParameters> {
-		const parameterFileToImport = this.markdownFile.absolutePath.replace('.md', '.ts');
+		const parameterFileToImport = this.markdownFile.absolutePath.replace(/\.md(x?)/g, '.ts');
 
 		return import(parameterFileToImport)
 			.then((parameters: { default : IPageParameters}) => {

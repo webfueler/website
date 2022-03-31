@@ -20,22 +20,26 @@ const customWebpackConfig = async () => {
 				{
 					test: /\.(sa|sc|c)ss$/,
 					use: [
-					MiniCssExtractPlugin.loader,
-					"css-loader",
-					"resolve-url-loader",
-					{
-						loader: "sass-loader",
-						options: {
-							sourceMap: true,
+						MiniCssExtractPlugin.loader,
+						"css-loader",
+						"resolve-url-loader",
+						{
+							loader: "sass-loader",
+							options: {
+								sourceMap: true,
+							}
 						}
-					}
 					],
 				},
 				{
 					test: /\.(png|jpe?g|gif)$/i,
 					use: [
 						{
-						loader: 'file-loader',
+							loader: 'file-loader',
+							options: {
+								name: '[name].[ext]',
+								outputPath: 'assets'
+							}
 						},
 					],
 				},

@@ -1,22 +1,24 @@
-import { Converter } from 'showdown';
 import { IHtmlFile, IHtmlFileService } from './interfaces';
 import { IMarkdownFile } from '../markdownFileService/interfaces';
 import { FileSystemService } from '../fileSystemService/FileSystemService';
+import { ConverterService } from '../converterService/ConverterService';
 
 class HtmlFileService implements IHtmlFileService {
 	private convertedFile: IHtmlFile = { content: '', filename: ''};
 
 	constructor(
 		private markdownFile: IMarkdownFile,
-		private converterService: Converter,
+		private converterService: ConverterService,
 		private basePath?: string,
 		public template?: string,
 	) {
 		const content = this.getHtmlContentFromMarkdownFile();
 		const filename = this.getHtmlFilenameFromMarkdownFile();
+		const params = this.converterService.parameters;
 		this.convertedFile = {
 			content,
-			filename
+			filename,
+			params
 		};
 	}
 
@@ -24,8 +26,12 @@ class HtmlFileService implements IHtmlFileService {
 		return this.convertedFile;
 	}
 
+	private replaceMarkdownLinksWithHtmlLinks(value: string): string {
+		return value.replace(/.md(x)/g,'.html')
+	}
+
 	private getHtmlContentFromMarkdownFile(): string {
-		return this.converterService.makeHtml(this.markdownFile.content).replace(/.md/g,'.html');
+		return this.replaceMarkdownLinksWithHtmlLinks(this.converterService.html);
 	}
 
 	private getHtmlFilenameFromMarkdownFile	(): string {

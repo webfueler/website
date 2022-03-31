@@ -9,7 +9,7 @@ class FileSystemService {
 	static filename(_path: string, basePath = ''): string {
 		const absoluteBasePath = FileSystemService.absolutePath(basePath);
 		const absoluteFilenamePath = FileSystemService.absolutePath(_path);
-		return absoluteFilenamePath.replace(absoluteBasePath,'').replace('.md','').slice(1);
+		return absoluteFilenamePath.replace(absoluteBasePath,'').replace(/\.md(x?)/g,'').slice(1);
 	}
 
 	static getFilesInFolder(folder: string, pattern: string): string[] {

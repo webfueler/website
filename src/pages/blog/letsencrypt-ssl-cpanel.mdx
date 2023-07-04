@@ -7,7 +7,7 @@ probably most of the shared hosting providers will want to sell you their own SS
 This article serves as a reminder for me on how I did it on my own shared hosting.
 
 ## Step 1: have a machine with `certbot`
-If don't have already [certbot](https://certbot.eff.org/) installed on one of you machines, you need to install it.
+If don't have already [certbot](https://certbot.eff.org/) installed on one of your machines, you need to install it.
 You can find instructions on how to install it at their page [here](https://certbot.eff.org/instructions). You can select
 `other` on the first option, and then select the OS that you want to install it in - in my case, I've installed it
 in a Debian virtual machine that I have running at home.
@@ -29,8 +29,8 @@ This will require you to edit the DNS records on your domain, and add a TXT reco
 > if the TXT record has propagated.
 
 ## Step 3: install certificate in cPanel
-The previous command should have generate `privkey.pem` and `cert.pem`.
-Copy those file contents and add the in cPanel:
+The previous command should have generated `privkey.pem` and `cert.pem`.
+Copy those file contents and paste them in cPanel:
 
 - SSL / TLS Sites
 

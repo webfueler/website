@@ -26,7 +26,12 @@ body {
 .wf-converter-markdown {
   img {
     width: 100%;
-    max-width: 300px;
+    box-shadow: 0px 0px 20px 8px black;
+    border-radius: $wf-padding-multiplier;
+
+    &[src$="#headshot"] {
+      max-width: 300px;
+    }
   }
 
   hr {
@@ -39,6 +44,13 @@ body {
     &:hover {
       color: darken($wf-color, 50%);
     }
+  }
+
+  blockquote {
+    background-color: black;
+    border-left: 4px solid grey;
+    margin: 0;
+    padding: .5em 1em;
   }
 }
 

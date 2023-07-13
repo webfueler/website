@@ -11,6 +11,7 @@ At the same time - and in the opposite spectrum - I was always curious on unders
 With that said, I'll try to split up this journal in two sections:
 
 ## Programming
+- [Building atomic reusable React components](./building-atomic-reusable-react-components.mdx)
 - [Add LetsEncrypt SSL to cPanel shared hosting that does not support it](./letsencrypt-ssl-cpanel.mdx)
 
 ## Music

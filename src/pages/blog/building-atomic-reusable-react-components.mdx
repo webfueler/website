@@ -1,0 +1,48 @@
+---
+title: 'Building atomic reusable React components'
+---
+# Building atomic reusable React components | Webfueler
+If you ever worked on big React projects, you certaintly had to write smaller components to be reused by bigger ones.
+In this case I am calling these components `atoms`. If you want to know more about Atomic Design, you can check
+this page by Brad Frost which explains it very well: [https://bradfrost.com/blog/post/atomic-web-design/](https://bradfrost.com/blog/post/atomic-web-design/)
+
+## Writting a simple input
+The basic principles for writting scalable components are the following:
+- localize your styles (in this example we are using CSS modules, but scoping is another option)
+- make sure you extend the root element native props, so that we don't restrict consumers from using whatever props they need (unless it's a requirement).
+In this example, I am moving the `className` to the wrapper element so that consumers can hgave more flexibility if they need to overwrite styles (they shouldn't, but ok...).
+The remaining props are passed to the native element.
+
+```jsx
+type InputProps = {
+  iconUrl?: string;
+} & React.InputHTMLAttributes<HTMLInputElement>;
+
+const Input = ({ iconUrl, className, ...nativeProps }: InputProps) => {
+  const rootElementClassname = "input";
+  const classes = {
+    root: cn(
+      styles[rootElementClassname],
+      {
+        [styles["has-icon"]]: iconUrl
+      },
+      className
+    ),
+    icon: styles[`${rootElementClassname}__icon`],
+    nativeElement: styles[`${rootElementClassname}__native-element`]
+  };
+
+  return (
+    <div className={classes.root}>
+      {iconUrl && <img src={iconUrl} alt="icon" className={classes.icon} />}
+      <input {...nativeProps} className={classes.nativeElement} />
+    </div>
+  );
+};
+```
+
+You can check the full example in my [codesandbox](https://codesandbox.io/s/atomic-reusable-components-jnrt3z).
+
+
+- [Go back](./index.md)
+- [Go home](../index.mdx)

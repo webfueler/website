@@ -10,7 +10,7 @@ this page by Brad Frost which explains it very well: [https://bradfrost.com/blog
 The basic principles for writting scalable components are the following:
 - localize your styles (in this example we are using CSS modules, but scoping is another option)
 - make sure you extend the root element native props, so that we don't restrict consumers from using whatever props they need (unless it's a requirement).
-In this example, I am moving the `className` to the wrapper element so that consumers can hgave more flexibility if they need to overwrite styles (they shouldn't, but ok...).
+In this example, I am moving the `className` to the wrapper element so that consumers can have more flexibility if they need to overwrite styles (they shouldn't, but ok...).
 The remaining props are passed to the native element.
 
 ```tsx

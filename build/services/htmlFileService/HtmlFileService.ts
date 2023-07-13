@@ -27,7 +27,7 @@ class HtmlFileService implements IHtmlFileService {
 	}
 
 	private replaceMarkdownLinksWithHtmlLinks(value: string): string {
-		return value.replace(/.mdx?/g,'.html')
+		return value.replace(/.mdx?/g,'.html').replace(/\/index.html/g, '/');
 	}
 
 	private getHtmlContentFromMarkdownFile(): string {

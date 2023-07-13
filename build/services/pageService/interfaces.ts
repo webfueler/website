@@ -9,7 +9,6 @@ interface IPageService {
 	pathname: string;
 }
 
-
 export type {
 	IPageService,
 	IMenuItem

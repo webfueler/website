@@ -5,7 +5,7 @@ import "prismjs/components/prism-tsx";
 import "prismjs/components/prism-typescript";
 import "prismjs/components/prism-bash";
 
-const init = () => {
+const init = (): void => {
 	const elements = document.querySelectorAll("pre");
 	elements.forEach((elem) => {
 		Prism.highlightAllUnder(elem);

@@ -1,8 +1,8 @@
-const init = () => {
-	const menuHandler = () => {
+const init = (): void => {
+	const menuHandler = (): void => {
 		const { pathname } = window.location;
 		const menuItems = document.querySelectorAll(".navigation__item");
-		for (let menuItem of menuItems) {
+		for (const menuItem of menuItems) {
 			const href = menuItem.getAttribute('href');
 			if (!href) break;
 
@@ -17,7 +17,7 @@ const init = () => {
 		}
 	}
 
-	const handleScroll = () => {
+	const handleScroll = (): void => {
 		const sticky = document.querySelector("header");
 		if (!sticky) return;
 
@@ -28,11 +28,11 @@ const init = () => {
 		}
 	}
 
-	const scrollHandler = () => {
+	const scrollHandler = (): void => {
 		document.addEventListener("scroll", handleScroll);
 	}
 
-	const init = () => {
+	const init = (): void => {
 		menuHandler();
 		scrollHandler();
 	}

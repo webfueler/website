@@ -22,4 +22,4 @@ With that said, I'll try to split up this journal in two sections:
     - Recording Born a Lion
 - Twin Transistors
 
-[Go back home](../index.mdx)
+[Go home](../index.mdx)

@@ -1,8 +1,7 @@
 import { Options } from 'html-webpack-plugin';
 import { HtmlFileService } from '../htmlFileService/HtmlFileService';
 import { FileSystemService } from '../fileSystemService/FileSystemService';
-import { ParametersFileService } from '../parametersFileService/ParametersFileService';
-import { IPageService } from './interfaces';
+import { IMenuItem, IPageService } from './interfaces';
 import { HTML_WEBPACK_PLUGIN_OPTIONS } from './constants';
 
 export class PageService implements IPageService {
@@ -11,11 +10,21 @@ export class PageService implements IPageService {
 	constructor(
 		private defaultTemplate: string,
 		private htmlFileService: HtmlFileService,
-		private parametersFileService: ParametersFileService,
 	) {}
 
-	async htmlPluginOptions(): Promise<Options> {
-		const parameters = this.htmlFileService.file.params || await this.parametersFileService.getParameters();
+	public get pathname(): string {
+		return '/' + this.htmlFileService.file.filename.replace("index.html", "");
+	}
+
+	public get name(): string | undefined {
+		return this.htmlFileService.file.params?.meta.name;
+	}
+
+	public get description(): string | undefined {
+		return this.htmlFileService.file.params?.meta.description;
+	}
+	public htmlPluginOptions(menu?: IMenuItem[]): Options {
+		const parameters = this.htmlFileService.file.params;
 
 		return {
 			...this.defaultOptions,
@@ -23,6 +32,7 @@ export class PageService implements IPageService {
 			filename: this.htmlFileService.file.filename,
 			templateParameters: {
 				...parameters,
+				menu,
 				markdown: this.htmlFileService.file.content,
 			},
 		}

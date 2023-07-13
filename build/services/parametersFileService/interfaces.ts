@@ -1,5 +1,7 @@
 interface IPageMeta {
-	title: string;
+	title?: string;
+	description?: string;
+	name?: string;
 }
 
 interface IPageParameters {

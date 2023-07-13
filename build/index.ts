@@ -5,28 +5,38 @@ import { ParametersFileService } from './services/parametersFileService/Paramete
 import { Options } from 'html-webpack-plugin';
 import { FileSystemService } from './services/fileSystemService/FileSystemService';
 import { ConverterService } from './services/converterService/ConverterService';
+import type { IMenuItem } from './services/pageService/interfaces';
 
 const PAGES_PATH = '../src/pages/';
 
 const files = FileSystemService.getFilesInFolder(PAGES_PATH, '**/*.md*');
 
+const menu: IMenuItem[] = [];
+
 const pages: PageService[] = files.map((file) => {
 	const markdownFileService = new MarkdownFileService(PAGES_PATH + file);
 	const markdownFile = markdownFileService.file;
 	const converter = new ConverterService(markdownFileService);
-	const parameters = new ParametersFileService(markdownFile);
 	const htmlService = new HtmlFileService(
 		markdownFile,
 		converter,
 		PAGES_PATH,
 	);
 
-	return new PageService('../src/template.ejs', htmlService, parameters)
+	const page = new PageService('../src/template.ejs', htmlService)
+
+	if (page.name) {
+		const { name, pathname } = page;
+
+		// make sure Home if the first menu item
+		page.pathname === "/" ?
+			menu.unshift({ name, pathname }) :
+			menu.push({ name, pathname})
+	}
+
+	return page;
 });
 
-const getPages = async (): Promise<Options[]> => {
-	const promises = pages.map((page) => page.htmlPluginOptions());
-	return Promise.all(promises)
-}
+const getPages = (): Options[] => pages.map((page) => page.htmlPluginOptions(menu));
 
 export default getPages

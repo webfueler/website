@@ -1,9 +1,16 @@
 import { Options } from "html-webpack-plugin";
 
+interface IMenuItem {
+	name: string;
+	pathname: string;
+}
 interface IPageService {
-	htmlPluginOptions: () => Promise<Options>;
+	htmlPluginOptions: (menu?: IMenuItem[]) => Options;
+	pathname: string;
 }
 
-export {
-	IPageService
+
+export type {
+	IPageService,
+	IMenuItem
 }

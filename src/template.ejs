@@ -18,6 +18,17 @@
       gtag('config', 'G-7JLTQQXZYM');
     </script>
 
+    <header class="header">
+      <div class="wf-container">
+        <nav class="navigation">
+        <% menu.forEach(item => { %>
+          <a class="navigation__item" href="<%= item.pathname %>"><%= item.name %></a>
+        <% }); %>
+        </nav>
+      </div>
+    </header>
+
+
     <div class="wf-container">
       <div class="wf-converter-markdown">
         <% try { %>

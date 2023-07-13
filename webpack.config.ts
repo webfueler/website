@@ -7,7 +7,7 @@ const isProduction = process.env.NODE_ENV !== "development";
 
 const customWebpackConfig = async () => {
 	const htmlFilesCreator = (await import('./build')).default;
-	const htmlFiles = await htmlFilesCreator();
+	const htmlFiles = htmlFilesCreator();
 
 	const config = {
 		entry: path.resolve(__dirname, "src/index.ts"),

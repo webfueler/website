@@ -5,6 +5,14 @@
 
 body {
   box-sizing: border-box;
+
+  a, a:visited {
+    color: darken($wf-color, 20%);
+
+    &:hover {
+      color: darken($wf-color, 50%);
+    }
+  }
 }
 
 .wf-body {
@@ -38,14 +46,6 @@ body {
     border-color: darken($wf-color, 50%);
   }
 
-  a, a:visited {
-    color: darken($wf-color, 20%);
-
-    &:hover {
-      color: darken($wf-color, 50%);
-    }
-  }
-
   blockquote {
     background-color: black;
     border-left: 4px solid grey;
@@ -59,4 +59,34 @@ pre[class*="language-"] {
   margin-right: -$wf-container-padding;
   font-size: 14px;
   overflow-x: auto;
+}
+
+.header {
+  border-bottom: 1px solid darken($wf-color, 50%);
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  background-color: $wf-background-color;
+  transition: 0.15s all ease;
+  box-shadow: none;
+
+  &.is-sticky {
+    box-shadow: 0 6px 10px black;
+  }
+}
+
+.navigation {
+  &__item,
+  &__item:visited {
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    margin-right: 20px;
+    text-transform: lowercase;
+    text-decoration: none;
+    background-color: black;
+    padding: 3px 6px;
+
+    &.is-active {
+      color: $wf-color;
+    }
+  }
 }

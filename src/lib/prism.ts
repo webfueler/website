@@ -4,6 +4,7 @@ import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-tsx";
 import "prismjs/components/prism-typescript";
 import "prismjs/components/prism-bash";
+import "prismjs/components/prism-scss";
 
 const init = (): void => {
 	const elements = document.querySelectorAll("pre");

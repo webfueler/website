@@ -53,7 +53,9 @@ const customWebpackConfig = async () => {
 			extensions: [".ts", ".tsx", ".js"]
 		},
 		plugins: [
-			new MiniCssExtractPlugin(),
+			new MiniCssExtractPlugin({
+				filename: "[name].[contenthash].css",
+			}),
 			...htmlFiles.map((elem) => new HtmlWebpackPlugin(elem)),
 			new CopyPlugin({
 				patterns: [
